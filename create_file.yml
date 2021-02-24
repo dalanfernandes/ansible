@@ -4,12 +4,12 @@
   tasks:
   - name: Creating an empty file
     file:
-      path: "/temp/touch.txt"
+      path: "/home/Infosec/ansible/touch.txt"
       state: touch
 
   - name: Creating a file with content
     copy:
-      dest: "/temp/createdfile.txt"
+      dest: "/home/Infosec/ansible/createdfile.txt"
       content: |
         file create by dalan 
         line 02
