@@ -12,9 +12,10 @@
       dest: "/home/Infosec/ansible/createdfile.txt"
       content: |
         file create by dalan for testing
+        best in the world
 
   - name: Move file 
     copy:
-      src: "/home/infosec/ansible/movefile.txt"
+      src: "/home/movefile.txt"
       dest: "/home/Infosec/ansible/movefile.txt"
         
