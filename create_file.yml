@@ -14,5 +14,8 @@
         file create by dalan for testing
 
   - name: Move file 
-      command: mv /home/infosec/ansible/movefile.txt /home/Infosec/ansible/
+    copy:
+      remote_source: true
+      src: "/home/infosec/ansible/movefile.txt"
+      dest: /home/Infosec/ansible/
         
