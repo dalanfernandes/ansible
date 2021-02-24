@@ -1,7 +1,12 @@
 ---
-
 - hosts: all
+  become: yes
   tasks:
+  - name: Creating an empty file
+    file:
+      path: "/root/dalan/touch.txt"
+      state: touch
+
   - name: Creating a file with content
     copy:
       dest: "/root/dalan/createdfile.txt"
