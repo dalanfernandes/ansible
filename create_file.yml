@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  tasks:
+  - name: Creating a file with content
+    copy:
+      dest: "/root/dalan/createdfile.txt"
+      content: |
+        file create by dalan 
+        line 02
