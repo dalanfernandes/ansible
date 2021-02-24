@@ -15,7 +15,6 @@
 
   - name: Move file 
     copy:
-      remote_source: true
       src: "/home/infosec/ansible/movefile.txt"
-      dest: /home/Infosec/ansible/
+      dest: "/home/Infosec/ansible/movefile.txt"
         
