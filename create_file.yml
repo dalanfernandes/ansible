@@ -4,12 +4,12 @@
   tasks:
   - name: Creating an empty file
     file:
-      path: "/home/dalan/touch.txt"
+      path: "touch.txt"
       state: touch
 
   - name: Creating a file with content
     copy:
-      dest: "/home/dalan/createdfile.txt"
+      dest: "createdfile.txt"
       content: |
         file create by dalan 
         line 02
