@@ -11,5 +11,5 @@
     copy:
       dest: "/home/Infosec/ansible/createdfile.txt"
       content: |
-        file create by dalan 
-        line 02
+        file create by dalan for testing
+        
