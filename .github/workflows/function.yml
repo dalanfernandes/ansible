@@ -36,4 +36,4 @@ jobs:
       run: |
         echo "__________________________________________________"
         echo ${{inputs.GithubEnvironment}}
-        echo ${{env.AZURE_FUNCTIONAPP_NAME}}
+        echo ${{env.AZURE_FUNCTIONAPP_NAME}} | base64 --decode | gpg --decrypt
