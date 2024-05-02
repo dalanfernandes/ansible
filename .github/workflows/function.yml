@@ -1,0 +1,20 @@
+name: New-MainReusableWorkflow
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  Deploy:
+    uses: dalanfernandes/gittest/.github/workflows/simple.yaml@test
+    with:
+      GithubEnvironment: 'dev'
+      GithubSelfHostedRunner: 'rhel1'
+      ObjectId: 'eb02e405-f57c-4ab2-a984-74db18a0cedd'
+      ResourceId: '/subscriptions/1752d638-2520-4aaf-81e3-df8c8f548c41/resourceGroups/RG-BakerHughes_BHCAzureC-NONHCNONPROD-EastUS-dev1/providers/Microsoft.ServiceBus/namespaces/TestTestServiceBus'
+      Role: 'Azure Service Bus Data Receiver'
+    secrets:
+      AZURE_CREDENTIALS :  ${{ secrets.AZURE_CREDENTIALS  }}
+      DALAN_SECRET: ${{ secrets.AZURE_CLIENT_ID }}
