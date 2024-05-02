@@ -23,7 +23,7 @@ permissions:
 env:
   location: eastus
   AZURE_FUNCTIONAPP_PACKAGE_PATH: './dalan_fun_new'
-  AZURE_FUNCTIONAPP_NAME: 'dalanfuntest'
+  AZURE_FUNCTIONAPP_NAME: ${{secrets.DALAN_SECRET}}
   PYTHON_VERSION: '3.9'
 
 
@@ -36,4 +36,4 @@ jobs:
       run: |
         echo "__________________________________________________"
         echo ${{inputs.GithubEnvironment}}
-        echo ${{secrets.DALAN_SECRET}}
+        echo ${{env.AZURE_FUNCTIONAPP_NAME}}
