@@ -36,7 +36,3 @@ jobs:
       run: |
         echo "__________________________________________________"
         echo ${{inputs.GithubEnvironment}}
-        #echo ${{secrets.AZURE_CREDENTIALS}}
-        #echo ${{secrets.DALAN_SECRET}}
-        #curl -X POST -H "Content-Type: application/json" -d "{\"name\": \"${{ inputs.name }}\", \"add\": \"${{ inputs.add }}\"}" https://testlab.azurewebsites.net/api/http_trigger1
-        #az rest --method post --url 'https://testfundalan.azurewebsites.net/api/http_trigger1'
