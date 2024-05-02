@@ -1,20 +1,42 @@
-name: New-MainReusableWorkflow
+
+name: test function
+
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      GithubEnvironment:
+        description: 'env'
+        required: true
+        type: string
+    secrets:
+      AZURE_CREDENTIALS:
+        required: true   
+      AZURE_CLIENT_ID:
+        required: true       
+
+    
 
 permissions:
   id-token: write
   contents: read
 
+env:
+  location: eastus
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: './dalan_fun_new'
+  AZURE_FUNCTIONAPP_NAME: 'dalanfuntest'
+  PYTHON_VERSION: '3.9'
+
+
 jobs:
-  Deploy:
-    uses: dalanfernandes/gittest/.github/workflows/simple.yaml@test
-    with:
-      GithubEnvironment: 'dev'
-      GithubSelfHostedRunner: 'rhel1'
-      ObjectId: 'eb02e405-f57c-4ab2-a984-74db18a0cedd'
-      ResourceId: '/subscriptions/1752d638-2520-4aaf-81e3-df8c8f548c41/resourceGroups/RG-BakerHughes_BHCAzureC-NONHCNONPROD-EastUS-dev1/providers/Microsoft.ServiceBus/namespaces/TestTestServiceBus'
-      Role: 'Azure Service Bus Data Receiver'
-    secrets:
-      AZURE_CREDENTIALS :  ${{ secrets.AZURE_CREDENTIALS  }}
-      DALAN_SECRET: ${{ secrets.AZURE_CLIENT_ID }}
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 'Compose Customized Docker Image'
+      shell: bash
+      run: |
+        echo "__________________________________________________"
+        echo ${{inputs.GithubEnvironment}}
+        echo ${{secrets.AZURE_CREDENTIALS}}
+        echo ${{secrets.AZURE_CLIENT_ID}}
+        #curl -X POST -H "Content-Type: application/json" -d "{\"name\": \"${{ inputs.name }}\", \"add\": \"${{ inputs.add }}\"}" https://testlab.azurewebsites.net/api/http_trigger1
+        #az rest --method post --url 'https://testfundalan.azurewebsites.net/api/http_trigger1'
