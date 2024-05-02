@@ -11,7 +11,7 @@ on:
     secrets:
       AZURE_CREDENTIALS:
         required: true   
-      AZURE_CLIENT_ID:
+      DALAN_SECRET:
         required: true       
 
     
