@@ -31,10 +31,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
+    
     - name: 'commands'
       shell: bash
       run: |
         echo "__________________________________________________"
         echo ${{inputs.GithubEnvironment}}
-        echo "::set-env name=MY_SECRET::$(echo ${{ secrets.DALAN_SECRET }} | base64 -d)"
-        echo $name
+        python pythonfile.py ${{secrets.DALAN_SECRET}}
