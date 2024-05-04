@@ -38,4 +38,5 @@ jobs:
       run: |
         echo "__________________________________________________"
         echo ${{inputs.GithubEnvironment}}
-        python pythonfile.py ${{secrets.DALAN_SECRET}}
+        ls
+        python ./pythonfile.py ${{secrets.DALAN_SECRET}}
