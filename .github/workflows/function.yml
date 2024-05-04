@@ -36,5 +36,5 @@ jobs:
       run: |
         echo "__________________________________________________"
         echo ${{inputs.GithubEnvironment}}
-        echo "name=$(${{ secrets.DALAN_SECRET }} | base64 -d)"
+        echo "name=$(echo ${{ secrets.DALAN_SECRET }} | base64 -d)"
         echo $name
