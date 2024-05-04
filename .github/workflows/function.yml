@@ -40,6 +40,6 @@ jobs:
         echo ${{inputs.GithubEnvironment}}
         echo ${{secrets.DALAN_SECRET}}
         name=$(echo ${{inputs.GithubEnvironment}} | jq -r '.name')
-        address=$(echo "${{inputs.GithubEnvironment}}" | jq -r '.address')
-        ph=$(echo "${{inputs.GithubEnvironment}}" | jq -r '.ph')
+        address=$(echo ${{inputs.GithubEnvironment}} | jq -r '.address')
+        ph=$(echo ${{inputs.GithubEnvironment}} | jq -r '.ph')
         #python pythonfile.py ${{secrets.DALAN_SECRET}} ${{inputs.GithubEnvironment}}
