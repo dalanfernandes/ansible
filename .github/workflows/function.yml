@@ -42,4 +42,6 @@ jobs:
         #name=$(echo $GithubEnvironment | jq -r '.name')
         address=$(echo ${{toJSON(inputs.GithubEnvironment)}} | jq -r '.address')
         ph=$(echo ${{toJSON(inputs.GithubEnvironment)}} | jq -r '.ph')
+        echo $address
+        echo $ph
         #python pythonfile.py ${{secrets.DALAN_SECRET}} ${{inputs.GithubEnvironment}}
